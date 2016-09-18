@@ -10,4 +10,5 @@ class Main extends Component {
     }
 }
 
+document.body.innerHTML = '<main></main>'; // fixme 模板不能使用么？如果直接把东西注入到body会有警告
 ReactDOM.render(<Main />, document.querySelector('main'));
