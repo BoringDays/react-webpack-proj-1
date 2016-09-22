@@ -11,7 +11,7 @@ var path = require('path');
 module.exports = {
     entry: [
         // 'webpack/hot/dev-server',
-        'webpack-dev-server/client?http://localhost:8080', // 如果用到后端服务器的话，可以直接改这里的IP和端口
+        'webpack-dev-server/client?http://localhost:8080', // 如果用到后端服务器的话，可以直接改这里的IP和端口；命令行里面--host 127.0.0.0 --port 1024 可以改端口和IP
         'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
         path.resolve(__dirname, 'src/main.js')
     ],
@@ -55,7 +55,7 @@ module.exports = {
         // new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             title: 'Webpack Demo',
-            template: 'src/index.hbs',
+            template: './src/index.hbs',
             filename: 'dist/index.html'
         }),
         new webpack.optimize.UglifyJsPlugin({
