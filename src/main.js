@@ -2,6 +2,8 @@ import './asserts/stylesheets/common.scss';
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
+// 请打开 http://localhost: (port)/webpack-dev-server才能看到，直接去localhost就……
+
 class Main extends Component {
     render (){
         return (
@@ -10,5 +12,4 @@ class Main extends Component {
     }
 }
 
-document.body.innerHTML = '<main></main>'; // fixme 模板不能使用么？如果直接把东西注入到body会有警告
 ReactDOM.render(<Main />, document.querySelector('main'));
