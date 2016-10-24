@@ -3,26 +3,11 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var settings = require('./config/settings');
 var path = require('path');
 
-// 直接访问localhost:(port)会出问题，应该访问localhost:(port)/webpack-dev-server
-
-// $ webpack： 生成目标文件
-// $ webpack -p：生成目标文件，并混淆压缩
-// $ webpack -d：生成目标文件，带有source map
-// $ webpack --watch：生成目标文件，并监听
-// http://webpack.github.io/docs/cli.html
-
 module.exports = {
     entry: {
-        app: [
-            // 'webpack/hot/dev-server',
-            'webpack-dev-server/client?http://localhost:' + settings.port, // 如果用到后端服务器的话，可以直接改这里的IP和端口；命令行里面--host 127.0.0.0 --port 1024 可以改端口和IP
-            'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
-            path.resolve(__dirname, 'src/index.js')
-        ]
+        app: path.resolve(__dirname, 'src/index.js'),
+        vendors: ['react', 'react-dom', 'react-router', 'react-bootstrap']
     },
-    // debug: true,
-    // devtool: 'eval-source-map', // faster in development
-    // devServer: settings.serverSetting,
     devtool: 'source-map',
     output: {
         // path: path.resolve(__dirname, 'dist'), // 输出路径
@@ -61,13 +46,19 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
         new HtmlWebpackPlugin({
             title: 'Webpack Demo',
             // template: path.join(__dirname, settings.sourcePath, 'index.hbs'),
             template: './src/index.hbs',
             filename: 'index.html'
+        }),
+        new webpack.optimize.CommonsChunkPlugin('vendors', 'common.js'),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false // Suppress uglification warnings
+            }
         })
     ]
 };
+
