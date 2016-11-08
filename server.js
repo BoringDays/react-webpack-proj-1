@@ -1,4 +1,4 @@
-// fixme: not working. some strange error occurred.
+// FIXME 奇怪，这样跑起来的服务器，文件链接好奇怪？用cli跑反而很正常
 
 // var webpack = require('webpack');
 // var WebpackDevServer = require('webpack-dev-server');

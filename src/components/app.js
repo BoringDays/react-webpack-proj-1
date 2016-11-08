@@ -1,19 +1,35 @@
+// import { Link, IndexLink } from 'react-router';
+import React, { Component } from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import FlatButton from 'material-ui/FlatButton';
+import { Toolbar, ToolbarGroup } from 'material-ui/Toolbar';
 import './../asserts/stylesheets/common.scss';
-import {Link, IndexLink} from 'react-router';
-import React, {Component} from 'react';
 
 class App extends Component {
-    constructor (props){
-        super(props);
-    }
-    render (){
-        return (
-            <div>
-                <h1>React App</h1>
-                <Link to="/product" activeStyle={{color: '#333'}}>product list</Link>
-            </div>
-        );
-    }
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <MuiThemeProvider>
+        <div>
+          <h1>React App</h1>
+          <Toolbar>
+            <ToolbarGroup>
+              <FlatButton label="index" href="#/" />
+              <FlatButton label="products" href="#/product" />
+            </ToolbarGroup>
+          </Toolbar>
+          {this.props.children}
+        </div>
+      </MuiThemeProvider>
+    );
+  }
 }
+
+App.propTypes = {
+  children: React.PropTypes.object
+};
 
 export default App;
