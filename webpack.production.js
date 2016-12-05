@@ -7,7 +7,7 @@ var path = require('path');
 module.exports = {
   entry: {
     app: path.resolve(__dirname, 'src/index.js'),
-    vendors: ['react', 'react-dom', 'react-router', 'react-bootstrap']
+    vendors: ['react', 'react-dom', 'react-router', 'material-ui', 'immutable']
   },
   devtool: 'source-map',
   output: {

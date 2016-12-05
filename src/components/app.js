@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import FlatButton from 'material-ui/FlatButton';
 import { Toolbar, ToolbarGroup } from 'material-ui/Toolbar';
-import './../asserts/stylesheets/common.scss';
+import '../../public/stylesheets/common.scss';
 
 class App extends Component {
   constructor(props) {

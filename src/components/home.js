@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './../asserts/stylesheets/common.scss';
+import '../../public/stylesheets/common.scss';
 
 class Home extends Component {
   constructor(props) {

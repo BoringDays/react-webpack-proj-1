@@ -9,37 +9,43 @@ import {
   TableRowColumn
 } from 'material-ui/Table';
 import { Link } from 'react-router';
-import './../asserts/stylesheets/common.scss';
+import Axios from 'axios';
+import '../../public/stylesheets/common.scss';
 
 class ProductList extends Component {
   constructor(props) {
     super(props);
+
+    //this.states = {};
+
+    Axios.get('/api/product').then((res) => {
+      console.log(res);
+    }).catch((res) => {
+      debugger;
+    });
   }
+
+  //componentWillMount() {
+  //
+  //}
 
   render() {
     return (
       <div>
-        <Table selectable={false} >
-          <TableHeader adjustForCheckbox={false} displaySelectAll={false} >
+        <Table selectable={false}>
+          <TableHeader adjustForCheckbox={false} displaySelectAll={false}>
             <TableRow>
               <TableHeaderColumn>Name</TableHeaderColumn>
               <TableHeaderColumn>Type</TableHeaderColumn>
               <TableHeaderColumn>Details</TableHeaderColumn>
             </TableRow>
           </TableHeader>
-          <TableBody displayRowCheckbox={false} >
+          <TableBody displayRowCheckbox={false}>
             <TableRow>
               <TableRowColumn>Product 1</TableRowColumn>
               <TableRowColumn>A</TableRowColumn>
               <TableRowColumn>
-                <Link to="/product/1" activeStyle={{ color: '#333' }} >details</Link>
-              </TableRowColumn>
-            </TableRow>
-            <TableRow>
-              <TableRowColumn>Product 2</TableRowColumn>
-              <TableRowColumn>B</TableRowColumn>
-              <TableRowColumn>
-                <Link to="/product/2" activeStyle={{ color: '#333' }} >details</Link>
+                <Link to="/product/1" activeStyle={{color: '#333'}}>details</Link>
               </TableRowColumn>
             </TableRow>
           </TableBody>
