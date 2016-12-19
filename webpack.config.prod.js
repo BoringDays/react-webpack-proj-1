@@ -57,9 +57,9 @@ module.exports = {
   plugins: [
     // 设置环境变量
     // 等效于npm scripts 的 set NODE_ENV=production && ... ？
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': 'prod'
-    }),
+    //new webpack.DefinePlugin({
+    //  'process.env.NODE_ENV': 'production'
+    //}),
     new webpack.NoErrorsPlugin(),
     new ExtractTextPlugin('css/app.css', {
       allChunks: true

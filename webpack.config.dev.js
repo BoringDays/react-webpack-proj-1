@@ -67,9 +67,9 @@ module.exports = {
   plugins: [
     // 设置环境变量
     // 等效于npm scripts 的 set NODE_ENV=development && ... ？
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': 'dev'
-    }),
+    //new webpack.DefinePlugin({
+    //  'process.env.NODE_ENV': 'development'
+    //}),
     new webpack.NoErrorsPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({

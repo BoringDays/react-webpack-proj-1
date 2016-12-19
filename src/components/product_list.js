@@ -18,11 +18,11 @@ class ProductList extends Component {
 
     //this.states = {};
 
-    //Axios.get('/api/product').then((res) => {
-    //  console.log(res);
-    //}).catch((res) => {
-    //  debugger;
-    //});
+    Axios.get('/api/product').then((res) => {
+      console.log(res);
+    }).catch((res) => {
+      debugger;
+    });
   }
 
   //componentWillMount() {
