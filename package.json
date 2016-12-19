@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack -p --progress --config webpack.config.prod.js",
-    "dev": "webpack-dev-server --progress --colors --hot --inline --history-api-fallback --content-base ./dist --config webpack.config.dev.js",
+    "dev": "webpack-dev-server --progress --colors --hot --inline --history-api-fallback --config webpack.config.dev.js",
     "lint": "eslint src",
     "server": "babel-node ./server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
