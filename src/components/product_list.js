@@ -21,7 +21,7 @@ class ProductList extends Component {
     Axios.get('/api/product').then((res) => {
       console.log(res);
     }).catch((res) => {
-      debugger;
+      console.log(res);
     });
   }
 
