@@ -14,7 +14,6 @@ var path = require('path');
 module.exports = {
   entry: {
     app: [
-      // 'webpack/hot/dev-server',
       'webpack-dev-server/client?http://localhost:' + settings.port, // 如果用到后端服务器的话，可以直接改这里的IP和端口；命令行里面--host 127.0.0.0 --port 1024 可以改端口和IP
       'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
       path.resolve(__dirname, 'src/index.js')
@@ -65,17 +64,11 @@ module.exports = {
     ]
   },
   plugins: [
-    // 设置环境变量
-    // 等效于npm scripts 的 set NODE_ENV=development && ... ？
-    //new webpack.DefinePlugin({
-    //  'process.env.NODE_ENV': 'development'
-    //}),
     new webpack.NoErrorsPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       title: 'Webpack Demo',
-      // template: path.join(__dirname, settings.sourcePath, 'index.hbs'),
-      template: './src/index.hbs',
+      template: './src/index.hbs', // 听说为了兼容mac os，需要拼接绝对路径？ path.join(__dirname, settings.sourcePath, 'index.hbs'),
       filename: 'index.html'
     })
   ]

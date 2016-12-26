@@ -7,7 +7,8 @@
     "build": "webpack -p --progress --config webpack.config.prod.js",
     "dev": "webpack-dev-server --no-info --colors --hot --inline --history-api-fallback --config webpack.config.dev.js",
     "lint": "eslint src",
-    "server": "babel-node ./server/index.js",
+    "server:run": "babel-node ./server/index.js",
+    "server:watch": "nodemon --exec babel-node ./server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -22,6 +23,7 @@
     "handlebars": "^4.0.5",
     "handlebars-loader": "^1.4.0",
     "immutable": "^3.8.1",
+    "lodash": "^4.17.2",
     "material-ui": "^0.16.0",
     "mongoose": "^4.6.6",
     "morgan": "^1.7.0",
@@ -56,6 +58,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.22.0",
     "http-proxy-middleware": "^0.17.2",
+    "nodemon": "^1.11.0",
     "redux-logger": "^2.7.0",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.15.1"

@@ -55,18 +55,12 @@ module.exports = {
     ]
   },
   plugins: [
-    // 设置环境变量
-    // 等效于npm scripts 的 set NODE_ENV=production && ... ？
-    //new webpack.DefinePlugin({
-    //  'process.env.NODE_ENV': 'production'
-    //}),
     new webpack.NoErrorsPlugin(),
     new ExtractTextPlugin('css/app.css', {
       allChunks: true
     }),
     new HtmlWebpackPlugin({
       title: 'Webpack Demo',
-      // template: path.join(__dirname, settings.sourcePath, 'index.hbs'),
       template: './src/index.hbs',
       filename: 'index.html',
       inject: true,
